@@ -1,0 +1,51 @@
+{
+  "homepage": "https://MJx17.github.io/",
+  "name": "my-react-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@eslint/js": "^9.10.0",
+    "@mui/icons-material": "^6.1.0",
+    "@mui/material": "^6.1.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "axios": "^1.7.7",
+    "cookies": "^0.9.1",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.10.0",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "framer-motion": "^11.5.4",
+    "gh-pages": "^6.1.1",
+    "globals": "^15.9.0",
+    "leaflet-control-geocoder": "^2.4.0",
+    "leaflet-routing-machine": "^3.2.12",
+    "leaflet.fullscreen": "^3.0.2",
+    "leaflet.markercluster": "^1.5.3",
+    "navigation": "^6.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "react-leaflet-cluster": "^2.1.0",
+    "react-router-dom": "^6.26.2",
+    "swiper": "^11.1.14",
+    "vite": "^5.4.6"
+  },
+  "dependencies": {
+    "react-refresh": "^0.14.2",
+    "sass": "^1.78.0"
+  }
+}
