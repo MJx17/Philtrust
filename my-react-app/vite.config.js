@@ -6,6 +6,7 @@ export default defineConfig({
   server:{
     hmr: true
   },
+  base: '/philtrust/',
  plugins: [
     react({
       fastRefresh: true, // Ensure Fast Refresh is enabled
