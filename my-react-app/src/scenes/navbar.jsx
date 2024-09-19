@@ -108,10 +108,11 @@ const Navbar = () => {
               </IconButton>
             </li> */}
             </ul>
-       </div>
-        <IconButton className="navbar-toggle" onClick={toggleMobileMenu}>
+            <IconButton className="navbar-toggle" onClick={toggleMobileMenu}>
           <MenuIcon style={{ color: '/fff' }} className="menu-icon" />
         </IconButton>
+       </div>
+       
         
       </nav>
 
