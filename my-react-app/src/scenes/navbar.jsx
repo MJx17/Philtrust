@@ -121,7 +121,7 @@ const Navbar = () => {
         
         <div className="mobile-menu" ref={linksContainerRef}>
           <ul className="mobile-menu-links">
-            <Accordion>
+          <Accordion sx={{ boxShadow: 'none' }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="personal-content"

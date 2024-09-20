@@ -56,8 +56,8 @@ a {
 // Global styles for lists
 ul, li {
   list-style: none; // Remove default list style
-  margin: 0;
-  padding: 0;
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
 
   li {
     font-size: 1rem; // Default font size for list items
