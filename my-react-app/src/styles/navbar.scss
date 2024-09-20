@@ -229,26 +229,29 @@
 }
 
 /* Accordion Styles (MUI specific overrides) */
-.css-1086bdv-MuiPaper-root-MuiAccordion-root {
+
+/* More specific selectors */
+.navbar-container .MuiPaper-root.MuiAccordion-root {
   width: 100% !important;
   background-color: transparent !important;
+}
 
-}
-.css-nt424e-MuiPaper-root-MuiAccordion-root{
-  box-shadow: none !important;
-}
-.--Paper-shadow{
+.navbar-container .MuiPaper-root.MuiAccordion-root {
   box-shadow: none !important;
 }
 
+.navbar-container .--Paper-shadow {
+  box-shadow: none !important;
+}
 
-.css-15v22id-MuiAccordionDetails-root {
+.navbar-container .MuiAccordionDetails-root {
   margin-left: 1em;
 }
 
-.css-eqpfi5-MuiAccordionSummary-content {
+.navbar-container .MuiAccordionSummary-content {
   margin-left: -1em !important;
 }
+
 
 
 @media (max-width: 350px) {
