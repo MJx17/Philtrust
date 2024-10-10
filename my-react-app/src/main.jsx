@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './styles/style.scss';
+import "./styles/style.scss"
 
 const Main = () => {
   const [isConsentGiven, setIsConsentGiven] = useState(false);
 
   useEffect(() => {
-    // Check if consent has been given before loading Google Analytics
-    if (isConsentGiven) {
-      // Load Google Analytics script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HK65HWZG8F';
-      document.body.appendChild(script);
+    var _mtm = (window._mtm = window._mtm || []);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-HK65HWZG8F'); // Initialize Google Analytics
+    // Require user tracking consent before processing data
+    _mtm.push(['requireConsent']);
+
+    // Load the Matomo script
+    var d = document,
+      g = d.createElement('script'),
+      s = d.getElementsByTagName('script')[0];
+    g.async = true;
+    g.src = 'https://cdn.matomo.cloud/philtrust.matomo.cloud/container_2X8pj0Zg.js';
+    s.parentNode.insertBefore(g, s);
+  }, []);
+
+  useEffect(() => {
+    if (isConsentGiven) {
+      // Grant consent if the user has given it
+      var _mtm = (window._mtm = window._mtm || []);
+      _mtm.push(['trackPageView']); // Track page views automatically
     }
   }, [isConsentGiven]);
 
@@ -29,7 +34,15 @@ const Main = () => {
   };
 
   const handleDecline = () => {
-    // Handle user decline (e.g., close modal, show message)
+    // Handle user decline
+  };
+
+  // Function to log user actions and send them to Matomo
+  const logUserAction = (action) => {
+    if (isConsentGiven) {
+      var _mtm = (window._mtm = window._mtm || []);
+      _mtm.push(['trackEvent', 'User Action', action]); // Send action to Matomo
+    }
   };
 
   return (
@@ -48,7 +61,7 @@ const Main = () => {
           </div>
         </div>
       )}
-      <App />
+      <App logUserAction={logUserAction} />
     </>
   );
 };
