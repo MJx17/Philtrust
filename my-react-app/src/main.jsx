@@ -1,18 +1,56 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import './styles/style.scss';
 
 const Main = () => {
-  useEffect(() => {
-    var _mtm = window._mtm = window._mtm || [];
-    _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-    g.async = true; 
-    g.src = 'https://cdn.matomo.cloud/philtrust.matomo.cloud/container_2X8pj0Zg.js'; 
-    s.parentNode.insertBefore(g, s);
-  }, []);
+  const [isConsentGiven, setIsConsentGiven] = useState(false);
 
-  return <App />;
+  useEffect(() => {
+    // Check if consent has been given before loading Google Analytics
+    if (isConsentGiven) {
+      // Load Google Analytics script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HK65HWZG8F';
+      document.body.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-HK65HWZG8F'); // Initialize Google Analytics
+    }
+  }, [isConsentGiven]);
+
+  const handleConsent = () => {
+    setIsConsentGiven(true);
+  };
+
+  const handleDecline = () => {
+    // Handle user decline (e.g., close modal, show message)
+  };
+
+  return (
+    <>
+      {!isConsentGiven && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Cookie Consent</h2>
+            <p>
+              We use cookies to improve your experience. By clicking "Accept", you consent to our use of cookies.
+            </p>
+            <div className="modal-buttons">
+              <button onClick={handleConsent}>Accept</button>
+              <button onClick={handleDecline}>Decline</button>
+            </div>
+          </div>
+        </div>
+      )}
+      <App />
+    </>
+  );
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(

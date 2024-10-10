@@ -1,0 +1,72 @@
+// styles.scss
+
+// Variables for colors
+$modal-bg: white;
+$overlay-bg: rgba(0, 0, 0, 0.5);
+$button-accept-bg: #4CAF50;
+$button-decline-bg: #f44336;
+$button-hover-bg: #f0f0f0;
+
+// Modal overlay styles
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-bg; // Semi-transparent background
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; // Ensure the modal is above other content
+}
+
+// Modal content styles
+.modal-content {
+  background: $modal-bg;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 400px; // Set a fixed width for the modal
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+// Modal buttons styles
+.modal-buttons {
+  margin-top: 20px;
+
+  button {
+    margin: 0 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &.accept {
+      background-color: $button-accept-bg; // Green background for Accept button
+      color: white;
+
+      &:hover {
+        background-color: darken($button-accept-bg, 10%);
+      }
+    }
+
+    &.decline {
+      background-color: $button-decline-bg; // Red background for Decline button
+      color: white;
+
+      &:hover {
+        background-color: darken($button-decline-bg, 10%);
+      }
+    }
+  }
+}
